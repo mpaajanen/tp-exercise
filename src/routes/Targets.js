@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Outlet, Link } from 'react-router-dom'
 
 
-const TargetList = () => {
+const Targets = () => {
   const targets = useSelector(state => state.targets)
   // console.log(targets)
   if (targets.length===0) {
@@ -28,4 +28,4 @@ const TargetList = () => {
 
 }
 
-export default TargetList
+export default Targets
