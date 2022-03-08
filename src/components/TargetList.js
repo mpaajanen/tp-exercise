@@ -14,7 +14,7 @@ const TargetList = () => {
   return (
     <div>
       {targets.giftTargets.map(target =>
-        <div>
+        <div key={target.giftTargetId}>
           <Link
             to={`targets/${target.giftTargetId}`} 
             key={target.giftTargetId}>
