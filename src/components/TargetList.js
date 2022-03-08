@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Outlet, Link } from 'react-router-dom'
-
+import { Button, Space } from 'antd'
 
 const TargetList = () => {
   const targets = useSelector(state => state.targets)
@@ -12,16 +12,20 @@ const TargetList = () => {
   }
   return (
     <div>
-      {targets.giftTargets.map(target =>
+      <Space direction='vertical' size={'large'}>
+        {targets.giftTargets.map(target =>
         <div key={target.giftTargetId}>
-          <Link
-            to={`targets/${target.giftTargetId}`} 
-            key={target.giftTargetId}>
-              {target.name}
-          </Link>
+            <Button type='default' size='large'>
+              <Link
+                to={`targets/${target.giftTargetId}`} 
+                key={target.giftTargetId}>
+                {target.name}
+              </Link>
+            </Button>
         </div>
-      )}
-      <Outlet />
+        )}
+      </Space>
+    <Outlet />
     </div>
   )
 
