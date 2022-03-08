@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Row, Col, Button, Card, Space, Typography } from 'antd'
+
 
 const Target = () => {
   let params = useParams()
@@ -8,12 +10,23 @@ const Target = () => {
   const target = targets.giftTargets.find((t) => t.giftTargetId === params.targetId)
 
   return (
-    <div>
-      <Link to={'/'}>Takaisin</Link>
-      <h2>{target.name}</h2>
-      <h2>{target.type}</h2>
-      <h2>{target.paymentCode}</h2>
-    </div>
+    <Row>
+      <Col span={2}></Col>
+      <Col span={20}>
+        <div>
+          <Space direction='vertical'>
+            <Button size='large'>
+              <Link to={'/'}>Takaisin</Link>
+            </Button>
+            <Card title={target.type}>
+              <Typography.Text>{target.name}</Typography.Text><br />
+              <Typography.Text>Maksukoodi: {target.paymentCode}</Typography.Text>
+            </Card>
+          </Space>
+        </div>
+      </Col>
+      <Col span={2}></Col>
+    </Row>
   )
 }
 
