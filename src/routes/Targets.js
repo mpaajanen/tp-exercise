@@ -5,7 +5,6 @@ import { Outlet, Link } from 'react-router-dom'
 
 const Targets = () => {
   const targets = useSelector(state => state.targets)
-  // console.log(targets)
   if (targets.length===0) {
     return (
       <div>Ladataan...</div>
